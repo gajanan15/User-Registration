@@ -7,7 +7,7 @@ public class UserRegistration {
         System.out.println("Welcome To User Registration Form");
     }
 
-    public static boolean validateFirstName(String firstName) {
-        return (firstName.matches(VALID_NAME_PATTERN));
+    public static boolean validateName(String name) {
+        return (name.matches(VALID_NAME_PATTERN));
     }
 }
