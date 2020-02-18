@@ -72,25 +72,37 @@ public class UserRegistrationTest {
 
     @Test
     public void givenPasswordMinimumEightCharacters_WhenProper_ShouldReturnTrue() {
-        boolean password = UserRegistration.validatePasswordMinimumEightCharacters("password");
+        boolean password = UserRegistration.validatePassword("password",UserRegistration.VALID_PASSWORD_MINIMUM_EIGHT_CHARACTERS_PATTERN);
         Assert.assertTrue(password);
     }
 
     @Test
     public void givenPasswordMinimumEightCharacters_WhenImproper_ShouldReturnFalse() {
-        boolean password = UserRegistration.validatePasswordMinimumEightCharacters("pass");
+        boolean password = UserRegistration.validatePassword("pass",UserRegistration.VALID_PASSWORD_MINIMUM_EIGHT_CHARACTERS_PATTERN);
         Assert.assertFalse(password);
     }
 
     @Test
     public void givenPasswordWithAtleastOneUpperCase_WhenProper_ShouldReturnTrue() {
-        boolean password = UserRegistration.validatePasswordWithAtleastOneUpperCase("Password");
+        boolean password = UserRegistration.validatePassword("Password",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPER_CASE_PATTERN);
         Assert.assertTrue(password);
     }
 
     @Test
     public void givenPasswordWithAtleastOneUpperCase_WhenImproper_ShouldReturnFalse() {
-        boolean password = UserRegistration.validatePasswordWithAtleastOneUpperCase("password");
+        boolean password = UserRegistration.validatePassword("password",UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_UPPER_CASE_PATTERN);
+        Assert.assertFalse(password);
+    }
+
+    @Test
+    public void givenPasswordWithAtleastOneNumericNumber_WhenProper_ShouldReturnTrue() {
+        boolean password = UserRegistration.validatePassword("Password123", UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_NUMBER);
+        Assert.assertTrue(password);
+    }
+
+    @Test
+    public void givenPasswordWithAtleastOneNumericNumber_WhenImproper_ShouldReturnFalse() {
+        boolean password = UserRegistration.validatePassword("Password", UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_NUMBER);
         Assert.assertFalse(password);
     }
 }
