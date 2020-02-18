@@ -39,4 +39,34 @@ public class UserRegistrationTest {
         boolean email = UserRegistration.validateEmailId("abc.@gmail.com");
         Assert.assertFalse(email);
     }
+
+    @Test
+    public void givenMobileNumber_WhenProper_ShouldReturnTrue() {
+        boolean mobileNumber = UserRegistration.validateMobileNumber("91 8652556055");
+        Assert.assertTrue(mobileNumber);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenImproper_ShouldReturnFalse() {
+        boolean mobileNumber = UserRegistration.validateMobileNumber("918652556055");
+        Assert.assertFalse(mobileNumber);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenNoCountryCode_shouldReturnFalse() {
+        boolean mobileNumber = UserRegistration.validateMobileNumber("8652556055");
+        Assert.assertFalse(mobileNumber);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenCounrtryCodeImproper_ShouldReturnFalse() {
+        boolean mobileNumber = UserRegistration.validateMobileNumber("1234 8652556055");
+        Assert.assertFalse(mobileNumber);
+    }
+
+    @Test
+    public void givenMobileNumber_WhenMobileNumberImproper_ShouldReturnFalse() {
+        boolean mobileNumber = UserRegistration.validateMobileNumber("91 86525560");
+        Assert.assertFalse(mobileNumber);
+    }
 }
