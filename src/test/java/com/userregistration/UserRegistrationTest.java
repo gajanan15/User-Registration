@@ -69,4 +69,16 @@ public class UserRegistrationTest {
         boolean mobileNumber = UserRegistration.validateMobileNumber("91 86525560");
         Assert.assertFalse(mobileNumber);
     }
+
+    @Test
+    public void givenPasswordMinimumEightCharacters_WhenProper_ShouldReturnTrue() {
+        boolean password = UserRegistration.validatePasswordMinimumEightCharacters("password");
+        Assert.assertTrue(password);
+    }
+
+    @Test
+    public void givenPasswordMinimumEightCharacters_WhenImproper_ShouldReturnFalse() {
+        boolean password = UserRegistration.validatePasswordMinimumEightCharacters("pass");
+        Assert.assertFalse(password);
+    }
 }
