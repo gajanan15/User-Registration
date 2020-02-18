@@ -7,6 +7,7 @@ public class UserRegistration {
    static String VALID_PASSWORD_MINIMUM_EIGHT_CHARACTERS_PATTERN= "^[a-zA-Z0-9]{8,}$";
    static String VALID_PASSWORD_WITH_ATLEAST_ONE_UPPER_CASE_PATTERN = "^(?=.*[A-Z])[a-zA-Z0-9]{8,}$";
    static String VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_NUMBER = "^(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$";
+   static String VALID_PASSWORD_WITH_EXACTLY_ONE_SPECIAL_SYMBOL = "^((?=[^@|#|&|%|$]*[@|&|#|%|$][^@|#|&|%|$]*$)(?=.*[A-Z])(?=.*[0-9])[a-zA-Z0-9#@$?]{8,})$";
 
     public static void main(String[] args) {
         System.out.println("Welcome To User Registration Form");

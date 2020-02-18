@@ -105,4 +105,16 @@ public class UserRegistrationTest {
         boolean password = UserRegistration.validatePassword("Password", UserRegistration.VALID_PASSWORD_WITH_ATLEAST_ONE_NUMERIC_NUMBER);
         Assert.assertFalse(password);
     }
+
+    @Test
+    public void givenPasswordWithExactlyOneSpecialSymbol_WhenProper_ShouldReturnTrue() {
+        boolean password = UserRegistration.validatePassword("Gajanan@123", UserRegistration.VALID_PASSWORD_WITH_EXACTLY_ONE_SPECIAL_SYMBOL);
+        Assert.assertTrue(password);
+    }
+
+    @Test
+    public void givenPasswordWithExactlyOneSpecialSymbol_WhenImproper_ShouldReturnFalse() {
+        boolean password = UserRegistration.validatePassword("Gajanan@@123", UserRegistration.VALID_PASSWORD_WITH_EXACTLY_ONE_SPECIAL_SYMBOL);
+        Assert.assertFalse(password);
+    }
 }
