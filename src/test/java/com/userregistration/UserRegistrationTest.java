@@ -81,4 +81,16 @@ public class UserRegistrationTest {
         boolean password = UserRegistration.validatePasswordMinimumEightCharacters("pass");
         Assert.assertFalse(password);
     }
+
+    @Test
+    public void givenPasswordWithAtleastOneUpperCase_WhenProper_ShouldReturnTrue() {
+        boolean password = UserRegistration.validatePasswordWithAtleastOneUpperCase("Password");
+        Assert.assertTrue(password);
+    }
+
+    @Test
+    public void givenPasswordWithAtleastOneUpperCase_WhenImproper_ShouldReturnFalse() {
+        boolean password = UserRegistration.validatePasswordWithAtleastOneUpperCase("password");
+        Assert.assertFalse(password);
+    }
 }
